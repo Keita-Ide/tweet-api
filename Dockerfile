@@ -9,6 +9,7 @@ ENV PYTHONUNBUFFERED 1
 
 # txtファイルをイメージ側のappディレクトリに配置
 COPY ./requirements.txt /requirements.txt
+RUN pip install --upgrade pip && pip install -r ./requirements.txt
 
 # ローカルのapp配下のファイルをイメージ側のapp配下にコピー
 RUN mkdir /app
