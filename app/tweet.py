@@ -1,6 +1,5 @@
 import tweepy
 import random
-import re
 
 from config import CONFIG
 from gametitle import TWO_PARTS, THREE_PARTS, FOUR_PARTS
@@ -15,8 +14,7 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth)
 
-
-# 何パーツのタイトルにするかを決める
+# タイトルのパーツ数を決める
 title_parts_number = random.randint(2, 4)
 target_array = []
 if title_parts_number == 2:
@@ -26,17 +24,26 @@ elif title_parts_number == 3:
 elif title_parts_number == 4:
     target_array = FOUR_PARTS
 
-TWEET_TEXT = ''
-# 取得したタイトルを組み合わせる
+# タイトルを組み合わせる
+combi_title = ''
 for i in range(title_parts_number):
     title = random.choice(target_array)
-    print(range(title_parts_number))
-    texts = title.split('-')
-    print(texts)
-    TWEET_TEXT += texts[i]
+    separeted_title = title.split('-')
+    combi_title += separeted_title[i]
 
-# 存在するタイトルか確認する
+# タイトルが実在するか確認する
+title_exists = False
+for i in target_array:
+    if(not title_exists):
+        title_exists = combi_title == i.replace('-', '')
+
+# ツイート本文作成
+TWEET_TEXT = ''
+if(title_exists):
+    TWEET_TEXT = "👦🏻「ママ！{}買って」\n👩🏻「あら、次のクリスマスにならいいわよ〜」".format(combi_title)
+else:
+    TWEET_TEXT = "👦🏻「ママ！{}買って」\n👩🏻「そんなものないわよっ！！」".format(combi_title)
 
 # ツイート
 api.update_status(TWEET_TEXT)
-print("「{}」というツイートをした".format(TWEET_TEXT))
+print("{}というツイートをした".format(TWEET_TEXT))
