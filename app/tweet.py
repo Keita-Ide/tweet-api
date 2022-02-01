@@ -46,4 +46,3 @@ else:
 
 # ツイート
 api.update_status(TWEET_TEXT)
-print("{}というツイートをした".format(TWEET_TEXT))
