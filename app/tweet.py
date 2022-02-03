@@ -15,8 +15,8 @@ auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth)
 
 # タイトルのパーツ数を決める
-title_parts_number = random.randint(2, 4)
 target_array = []
+title_parts_number = random.randint(2, 4)
 if title_parts_number == 2:
     target_array = TWO_PARTS
 elif title_parts_number == 3:
@@ -46,3 +46,4 @@ else:
 
 # ツイート
 api.update_status(TWEET_TEXT)
+print(TWEET_TEXT)
