@@ -38,11 +38,11 @@ for i in target_array:
         title_exists = combi_title == i.replace('-', '')
 
 # ツイート本文作成
-TWEET_TEXT = ''
+TWEET_TEXT = "👦🏻「ママ！{}買って」".format(combi_title)
 if(title_exists):
-    TWEET_TEXT = "👦🏻「ママ！{}買って」\n👩🏻「あら、次のクリスマスにならいいわよ〜」".format(combi_title)
+    TWEET_TEXT = "\n👩🏻「あら、次のクリスマスにならいいわよ〜」"
 else:
-    TWEET_TEXT = "👦🏻「ママ！{}買って」\n👩🏻「そんなものないわよっ！！」".format(combi_title)
+    TWEET_TEXT = "\n👩🏻「そんなものないわよっ！！」"
 
 # ツイート
 api.update_status(TWEET_TEXT)
