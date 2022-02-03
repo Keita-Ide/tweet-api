@@ -40,9 +40,9 @@ for i in target_array:
 # ツイート本文作成
 TWEET_TEXT = "👦🏻「ママ！{}買って」".format(combi_title)
 if(title_exists):
-    TWEET_TEXT = "\n👩🏻「あら、次のクリスマスにならいいわよ〜」"
+    TWEET_TEXT += "\n👩🏻「あら、次のクリスマスにならいいわよ〜」"
 else:
-    TWEET_TEXT = "\n👩🏻「そんなものないわよっ！！」"
+    TWEET_TEXT += "\n👩🏻「そんなものないわよっ！！」"
 
 # ツイート
 api.update_status(TWEET_TEXT)
