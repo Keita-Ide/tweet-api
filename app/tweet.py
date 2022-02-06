@@ -46,3 +46,4 @@ else:
 
 # ツイート
 api.update_status(TWEET_TEXT)
+print(TWEET_TEXT)
