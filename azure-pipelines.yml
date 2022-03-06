@@ -31,4 +31,3 @@ stages:
         containerRegistry: 'Container Registry Connection'
         tags: |
           $(tag)
-    - task: PublishBuildArtifacts@1
