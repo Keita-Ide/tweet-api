@@ -9,6 +9,7 @@ resources:
 - repo: self
 
 variables:
+  buildConfiguration: 'Release'
   webRepository: 'web'
   tag: '$(Build.BuildId)'
 
