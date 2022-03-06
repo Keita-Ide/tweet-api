@@ -9,6 +9,7 @@ resources:
 - repo: self
 
 variables:
+  webRepository: 'web'
   tag: '$(Build.BuildId)'
 
 stages:
